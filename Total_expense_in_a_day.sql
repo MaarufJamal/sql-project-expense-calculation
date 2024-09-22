@@ -1,0 +1,7 @@
+SELECT DISTINCT DATE, 
+SUM(CONVERT (INT, EXPENSE)) AS Total_expense_in_that_day
+FROM dbo.CityBankStatement
+WHERE EXPENSE IS NOT NULL
+AND EXPENSE <> 0
+GROUP BY DATE
+ORDER BY Total_expense_in_that_day DESC;
